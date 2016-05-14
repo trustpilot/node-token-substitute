@@ -1,5 +1,5 @@
 {
-  "name": "node-token-substitute",
+  "name": "token-substitute",
   "version": "1.0.0",
   "description": "Substitute variables in an object",
   "main": "index.js",
