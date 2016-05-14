@@ -1,4 +1,4 @@
-[![Build Status][Travis Image]][Travis Url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
 # node-token-substitute
 
 > Substitute variables in object in nodejs projects
@@ -60,6 +60,12 @@ ___
 > Modified from [Pictela/gulp-token-replace](https://github.com:Pictela/gulp-token-replace)
 
 
-
-[Travis Image]:https://travis-ci.org/trustpilot/node-eslint-config.svg?branch=master
-[Travis Url]:https://travis-ci.org/trustpilot/node-eslint-config
+[npm-url]: https://npmjs.org/package/node-token-substitute
+[downloads-image]: http://img.shields.io/npm/dm/node-token-substitute.svg
+[npm-image]: http://img.shields.io/npm/v/node-token-substitute.svg
+[travis-url]: https://travis-ci.org/trustpilot/node-token-substitute
+[travis-image]: http://img.shields.io/travis/trustpilot/node-token-substitute.svg
+[david-dm-url]:https://david-dm.org/trustpilot/node-token-substitute
+[david-dm-image]:https://david-dm.org/trustpilot/node-token-substitute.svg
+[david-dm-dev-url]:https://david-dm.org/trustpilot/node-token-substitute#info=devDependencies
+[david-dm-dev-image]:https://david-dm.org/trustpilot/node-token-substitute/dev-status.svg
