@@ -6,7 +6,7 @@ function injectDefaultOptions(options) {
   options = options || {};
   options.prefix = options.prefix || '#{';
   options.suffix = options.suffix || '}';
-  options.configFile = options.configFile || './config.json';
+  options.configFile = options.configFile || process.cwd() + '/config.json';
   options.preserveUnknownTokens = options.preserveUnknownTokens || false;
   options.delimiter = options.delimiter || '.';
 
