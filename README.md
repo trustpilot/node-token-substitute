@@ -1,3 +1,4 @@
+[![Build Status][Travis Image]][Travis Url]
 # node-token-substitute
 
 > Substitute variables in object in nodejs projects
@@ -57,3 +58,8 @@ console.log(config);
 
 ___
 > Modified from [Pictela/gulp-token-replace](https://github.com:Pictela/gulp-token-replace)
+
+
+
+[Travis Image]:https://travis-ci.org/trustpilot/node-eslint-config.svg?branch=master
+[Travis Url]:https://travis-ci.org/trustpilot/node-eslint-config
