@@ -20,11 +20,19 @@ function injectDefaultOptions(options) {
   return options;
 }
 
-function replace(object, options) {
+function replace(target, options) {
   options = injectDefaultOptions(options);
 
   var includeRegExp = new RegExp(escapeRegExp(options.prefix) + '(.+?)' + escapeRegExp(options.suffix), 'g');
-  var text = JSON.stringify(object);
+  var text, isObject = false;
+  if (typeof target === 'object') {
+    text = JSON.stringify(target);
+    isObject = true;
+  } else if ( typeof target === 'string') {
+     text = target;
+  } else {
+    text = target.toString();
+  }
 
   var retVal = text;
   var regExpResult;
@@ -42,7 +50,7 @@ function replace(object, options) {
       retVal = retVal.replace(fullMatch, tokenValue);
     }
   }
-  return JSON.parse(retVal);
+  return isObject ? JSON.parse(retVal) : retVal;
 };
 
 function escapeRegExp(text) {

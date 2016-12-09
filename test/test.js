@@ -12,7 +12,8 @@ describe('Default option value tests', () => {
     test5: {
       test1: "#{key5.1}",
       test2: "#{key5.2}"
-    }
+    },
+    test6: '#{key1}'
   };
 
   it('Test default options', () => {
@@ -58,4 +59,18 @@ describe('Default option value tests', () => {
     assert.equal(actual.test4, 'value4.1');
     assert.equal(actual.test5.test1, 'value5.1');
   });
+
+  it('Testing that the target can be string value', () => {
+    const options = {configFile: './test/test.json' };
+    const configvalue = JSON.stringify(config);
+    const actual = substitute(configvalue, options);
+
+    assert.isNotObject(actual);
+    assert.notInclude(configvalue, 'value1');
+    assert.include(actual, 'value1');
+    assert.include(actual, 'value3.1');
+    assert.include(actual, 'value4.1');
+    assert.include(actual, 'value5.1');
+    assert.notInclude(actual, '#{key1}');
+  })
 });

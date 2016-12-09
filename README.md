@@ -14,7 +14,7 @@ npm install token-substitute
 ``` javascript
 var substitute = require('token-substitute');
 
-var configObject = { key: '#{config.key}', url: '#{host.url}' };
+var configObject = { key: '#{config.key}', url: '#{host.url}' }; // Can also just be a string value
 
 var options = {
   tokens: {
