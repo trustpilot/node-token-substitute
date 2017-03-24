@@ -63,7 +63,7 @@ function replace(target, options) {
       tokenValue = '';
     }
     if (tokenValue !== null) {
-      if (typeof tokenValue == 'object') {
+      if (typeof tokenValue === 'object') {
         tokenValue = JSON.stringify(tokenValue);
       }
       retVal = retVal.replace(fullMatch, tokenValue);
