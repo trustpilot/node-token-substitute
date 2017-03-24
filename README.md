@@ -1,15 +1,16 @@
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
-# node-token-substitute
+# token-substitute
 
-> Substitute variables in object in nodejs projects
+[![Build Status](https://travis-ci.org/trustpilot/node-token-substitute.svg?branch=master)](https://travis-ci.org/trustpilot/node-token-substitute) [![npm](https://img.shields.io/npm/v/token-substitute.svg)](https://www.npmjs.com/package/token-substitute)
+
+Substitute tokens in an object.
 
 ## Installation
 
 ``` javascript
-npm install token-substitute
+npm install token-substitute --save
 ```
 
-## How to use
+## Getting Started
 
 ``` javascript
 var substitute = require('token-substitute');
@@ -57,15 +58,4 @@ console.log(config);
  - **delimiter**: Tokens delimeter to match target object _string (default `.`)_
 
 ___
-> Modified from [Pictela/gulp-token-replace](https://github.com:Pictela/gulp-token-replace)
-
-
-[npm-url]: https://npmjs.org/package/token-substitute
-[downloads-image]: http://img.shields.io/npm/dm/token-substitute.svg
-[npm-image]: http://img.shields.io/npm/v/token-substitute.svg
-[travis-url]: https://travis-ci.org/trustpilot/node-token-substitute
-[travis-image]: http://img.shields.io/travis/trustpilot/node-token-substitute.svg
-[david-dm-url]:https://david-dm.org/trustpilot/node-token-substitute
-[david-dm-image]:https://david-dm.org/trustpilot/node-token-substitute.svg
-[david-dm-dev-url]:https://david-dm.org/trustpilot/node-token-substitute#info=devDependencies
-[david-dm-dev-image]:https://david-dm.org/trustpilot/node-token-substitute/dev-status.svg
+> Modified from [Pictela/gulp-token-replace](https://github.com/Pictela/gulp-token-replace)
