@@ -1,29 +1,15 @@
 {
   "name": "token-substitute",
   "version": "1.1.1",
-  "description": "Substitute variables in an object",
+  "description": "Substitute tokens in an object",
+  "homepage": "https://github.com/trustpilot/node-token-substitute",
+  "repository": "https://github.com/trustpilot/node-token-substitute.git",
+  "author": "Trustpilot",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/trustpilot/node-token-substitute.git"
-  },
-  "keywords": [
-    "substitute",
-    "token",
-    "replace",
-    "octopus",
-    "variable",
-    "substitute"
-  ],
-  "author": "Bardur Hammer Pihl",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/trustpilot/node-token-substitute/issues"
-  },
-  "homepage": "https://github.com/trustpilot/node-token-substitute#readme",
   "devDependencies": {
     "babel-eslint": "7.2.1",
     "chai": "3.5.0",
