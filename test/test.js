@@ -10,8 +10,8 @@ describe('Default option value tests', () => {
     test3: '#{key3-1}',
     test4: '#{key4.1}',
     test5: {
-      test1: "#{key5.1}",
-      test2: "#{key5.2}"
+      test1: '#{key5.1}',
+      test2: '#{key5.2}'
     },
     test6: '#{key1}'
   };
