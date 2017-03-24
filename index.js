@@ -1,7 +1,5 @@
 'use strict';
 
-module.exports = replace;
-
 function injectDefaultOptions(options) {
   options = options || {};
   options.prefix = options.prefix || '#{';
@@ -18,6 +16,27 @@ function injectDefaultOptions(options) {
   options.tokens = options.tokens || options.global || {};
 
   return options;
+}
+
+function escapeRegExp(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
+
+function getTokenValue(tokens, tokenName, delimiter) {
+  var tmpTokens = tokens;
+  if (tokens.hasOwnProperty(tokenName)) {
+    return tokens[tokenName];
+  }
+
+  var tokenNameParts = tokenName.split(delimiter);
+  for (var i = 0; i < tokenNameParts.length; i++) {
+    if (tmpTokens.hasOwnProperty(tokenNameParts[i])) {
+      tmpTokens = tmpTokens[tokenNameParts[i]];
+    } else {
+      return null;
+    }
+  }
+  return tmpTokens;
 }
 
 function replace(target, options) {
@@ -53,23 +72,4 @@ function replace(target, options) {
   return isObject ? JSON.parse(retVal) : retVal;
 };
 
-function escapeRegExp(text) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-}
-
-function getTokenValue(tokens, tokenName, delimiter) {
-  var tmpTokens = tokens;
-  if (tokens.hasOwnProperty(tokenName)) {
-    return tokens[tokenName];
-  }
-
-  var tokenNameParts = tokenName.split(delimiter);
-  for (var i = 0; i < tokenNameParts.length; i++) {
-    if (tmpTokens.hasOwnProperty(tokenNameParts[i])) {
-      tmpTokens = tmpTokens[tokenNameParts[i]];
-    } else {
-      return null;
-    }
-  }
-  return tmpTokens;
-}
+module.exports = replace;
