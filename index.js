@@ -70,6 +70,6 @@ function replace(target, options) {
     }
   }
   return isObject ? JSON.parse(retVal) : retVal;
-};
+}
 
 module.exports = replace;
