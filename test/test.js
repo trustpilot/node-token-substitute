@@ -72,5 +72,5 @@ describe('Default option value tests', () => {
     assert.include(actual, 'value4.1');
     assert.include(actual, 'value5.1');
     assert.notInclude(actual, '#{key1}');
-  })
+  });
 });
