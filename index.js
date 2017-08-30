@@ -74,7 +74,11 @@ function replace(target, options) {
       if (typeof tokenValue === 'object') {
         tokenValue = JSON.stringify(tokenValue);
       }
-
+      if (typeof tokenValue == 'string') {
+        if(tokenValue.indexOf('"') > -1){
+          tokenValue = tokenValue.replace(/"/g, '\\"');
+        }
+      }
       retVal = retVal.replace(fullMatch, tokenValue);
     }
   }
