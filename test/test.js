@@ -77,6 +77,6 @@ describe('Default option value tests', () => {
     const options = {configFile: './test/test.json' };
     const configvalue = JSON.stringify(config);
     const actual = substitute(configvalue, options);
-    assert.include(actual, 'value \" with \" quotes');
+    assert.include(actual, 'value \\" with \\" quotes');
   });
 });
