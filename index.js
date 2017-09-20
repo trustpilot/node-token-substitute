@@ -45,7 +45,8 @@ function getTokenValue(tokens, tokenName, delimiter) {
 function replace(target, options) {
   options = injectDefaultOptions(options);
 
-  var includeRegExp = new RegExp(escapeRegExp(options.prefix) + '(.+?)' + escapeRegExp(options.suffix), 'g');
+  var regexPattern = `${ escapeRegExp(options.prefix) }(.+?)${ escapeRegExp(options.suffix)}`;
+  var includeRegExp = new RegExp(regexPattern, 'g');
   var isObject = false;
   var text;
 
