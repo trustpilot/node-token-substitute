@@ -2,8 +2,7 @@
   "key1": "value1",
   "key2": "value2",
   "key3-1": "value3.1",
-  "key3-2": "value3.2",
   "key4.1": "value4.1",
-  "key4.2": "value4.2",
-  "key5.1": "value5.1"
+  "key5.1": "value5.1",
+  "key6": "value \" with \" quotes"
 }

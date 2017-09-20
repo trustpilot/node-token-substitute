@@ -10,10 +10,9 @@ describe('Default option value tests', () => {
     test3: '#{key3-1}',
     test4: '#{key4.1}',
     test5: {
-      test1: '#{key5.1}',
-      test2: '#{key5.2}'
+      test51: '#{key5.1}'
     },
-    test6: '#{key1}'
+    test6: '#{key6}'
   };
 
   it('Test default options', () => {
@@ -22,7 +21,7 @@ describe('Default option value tests', () => {
     assert.notStrictEqual(actual, config);
     assert.equal(actual.test1, '');
     assert.equal(actual.test2, '{{key2}}');
-    assert.equal(actual.test5.test1, '');
+    assert.equal(actual.test5.test51, '');
   });
 
   it('Test preserveUnknownTokens set to true', () => {
@@ -30,7 +29,7 @@ describe('Default option value tests', () => {
     const actual = substitute(config, options);
     assert.notEqual(actual.test1, '', 'Expected to preserve value');
     assert.equal(actual.test2, '{{key2}}');
-    assert.notEqual(actual.test5.test1, '');
+    assert.notEqual(actual.test5.test51, '');
   });
 
   it('Test tokens is set', () => {
@@ -57,7 +56,7 @@ describe('Default option value tests', () => {
     assert.equal(actual.test1, 'value1');
     assert.equal(actual.test3, 'value3.1');
     assert.equal(actual.test4, 'value4.1');
-    assert.equal(actual.test5.test1, 'value5.1');
+    assert.equal(actual.test5.test51, 'value5.1');
   });
 
   it('Testing that the target can be string value', () => {
@@ -72,5 +71,12 @@ describe('Default option value tests', () => {
     assert.include(actual, 'value4.1');
     assert.include(actual, 'value5.1');
     assert.notInclude(actual, '#{key1}');
+  });
+
+  it('Test that value can contain quotes', () => {
+    const options = {configFile: './test/test.json' };
+    const configvalue = JSON.stringify(config);
+    const actual = substitute(configvalue, options);
+    assert.include(actual, 'value \\" with \\" quotes');
   });
 });

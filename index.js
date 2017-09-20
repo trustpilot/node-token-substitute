@@ -45,7 +45,8 @@ function getTokenValue(tokens, tokenName, delimiter) {
 function replace(target, options) {
   options = injectDefaultOptions(options);
 
-  var includeRegExp = new RegExp(escapeRegExp(options.prefix) + '(.+?)' + escapeRegExp(options.suffix), 'g');
+  var regexPattern = `${ escapeRegExp(options.prefix) }(.+?)${ escapeRegExp(options.suffix)}`;
+  var includeRegExp = new RegExp(regexPattern, 'g');
   var isObject = false;
   var text;
 
@@ -53,7 +54,7 @@ function replace(target, options) {
     text = JSON.stringify(target);
     isObject = true;
   } else if ( typeof target === 'string') {
-     text = target;
+    text = target;
   } else {
     text = target.toString();
   }
@@ -73,12 +74,12 @@ function replace(target, options) {
     if (tokenValue !== null) {
       if (typeof tokenValue === 'object') {
         tokenValue = JSON.stringify(tokenValue);
-      }
-      if (typeof tokenValue === 'string') {
-        if(tokenValue.indexOf('"') > -1){
+      } else if (typeof tokenValue === 'string') {
+        if (tokenValue.indexOf('"') > -1) {
           tokenValue = tokenValue.replace(/"/g, '\\"');
         }
       }
+
       retVal = retVal.replace(fullMatch, tokenValue);
     }
   }
