@@ -53,7 +53,7 @@ function replace(target, options) {
     text = JSON.stringify(target);
     isObject = true;
   } else if ( typeof target === 'string') {
-     text = target;
+    text = target;
   } else {
     text = target.toString();
   }
