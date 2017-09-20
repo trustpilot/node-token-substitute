@@ -11,7 +11,8 @@ describe('Default option value tests', () => {
     test4: '#{key4.1}',
     test5: {
       test51: '#{key5.1}'
-    }
+    },
+    test6: '#{key6}'
   };
 
   it('Test default options', () => {
@@ -70,5 +71,12 @@ describe('Default option value tests', () => {
     assert.include(actual, 'value4.1');
     assert.include(actual, 'value5.1');
     assert.notInclude(actual, '#{key1}');
+  });
+
+  it('Test that value can contain quotes', () => {
+    const options = {configFile: './test/test.json' };
+    const configvalue = JSON.stringify(config);
+    const actual = substitute(configvalue, options);
+    assert.include(actual, 'value \" with \" quotes');
   });
 });
