@@ -7,6 +7,7 @@ function injectDefaultOptions(options) {
   options.configFile = options.configFile || process.cwd() + '/config.json';
   options.preserveUnknownTokens = options.preserveUnknownTokens || false;
   options.delimiter = options.delimiter || '.';
+  options.extractToken = options.extractToken || getTokenValue;
 
   if (options.configFile) {
     try {
@@ -41,6 +42,7 @@ function getTokenValue(tokens, tokenName, delimiter) {
 
   return tmpTokens;
 }
+
 
 function replace(target, options) {
   options = injectDefaultOptions(options);
