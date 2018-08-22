@@ -67,7 +67,7 @@ function replace(target, options) {
   while (regExpResult = includeRegExp.exec(text)) {
     var fullMatch = regExpResult[0];
     var tokenName = regExpResult[1];
-    var tokenValue = getTokenValue(options.tokens, tokenName, options.delimiter);
+    var tokenValue = options.extractToken(options.tokens, tokenName, options.delimiter);
 
     if (tokenValue === null && !options.preserveUnknownTokens) {
       tokenValue = '';
