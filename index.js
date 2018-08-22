@@ -7,7 +7,7 @@ function injectDefaultOptions(options) {
   options.configFile = options.configFile || process.cwd() + '/config.json';
   options.preserveUnknownTokens = options.preserveUnknownTokens || false;
   options.delimiter = options.delimiter || '.';
-  options.extractToken = options.extractToken || getTokenValue;
+  options.extractToken = options.extractToken || undefined;
 
   if (options.configFile) {
     try {
@@ -23,7 +23,7 @@ function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
-function getTokenValue(tokenName, tokens, delimiter) {
+function getTokenValue(tokens, tokenName, delimiter) {
   var tmpTokens = tokens;
 
   if (tokens.hasOwnProperty(tokenName)) {
@@ -67,7 +67,7 @@ function replace(target, options) {
   while (regExpResult = includeRegExp.exec(text)) {
     var fullMatch = regExpResult[0];
     var tokenName = regExpResult[1];
-    var tokenValue = options.extractToken(tokenName, options.tokens, options.delimiter);
+    var tokenValue = options.extractToken ? options.extractToken(tokenName) : getTokenValue(options.tokens, tokenName, options.delimiter);
 
     if (tokenValue === null && !options.preserveUnknownTokens) {
       tokenValue = '';

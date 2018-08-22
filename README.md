@@ -56,7 +56,7 @@ console.log(config);
  - **tokens**: A object of string:value pairs. Will be overritten with values from **configFile** if file exists - _object_
  - **preserveUnknownTokens**: _bool (default `false`)_
  - **delimiter**: Tokens delimeter to match target object _string (default `.`)_
- - **extractToken**: Override's the default token extraction method _func(tokens, tokenName, delimiter)
+ - **extractToken**: Override's the default token extraction method _func(tokenName)
 
 ___
 > Modified from [Pictela/gulp-token-replace](https://github.com/Pictela/gulp-token-replace)
