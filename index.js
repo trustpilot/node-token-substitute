@@ -23,7 +23,7 @@ function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
-function getTokenValue(tokens, tokenName, delimiter) {
+function getTokenValue(tokenName, tokens, delimiter) {
   var tmpTokens = tokens;
 
   if (tokens.hasOwnProperty(tokenName)) {
@@ -67,7 +67,7 @@ function replace(target, options) {
   while (regExpResult = includeRegExp.exec(text)) {
     var fullMatch = regExpResult[0];
     var tokenName = regExpResult[1];
-    var tokenValue = options.extractToken(options.tokens, tokenName, options.delimiter);
+    var tokenValue = options.extractToken(tokenName, options.tokens, options.delimiter);
 
     if (tokenValue === null && !options.preserveUnknownTokens) {
       tokenValue = '';
