@@ -1,4 +1,5 @@
 'use strict';
+var fs = require("fs");
 
 function injectDefaultOptions(options) {
   options = options || {};
@@ -7,11 +8,12 @@ function injectDefaultOptions(options) {
   options.configFile = options.configFile || process.cwd() + '/config.json';
   options.preserveUnknownTokens = options.preserveUnknownTokens || false;
   options.delimiter = options.delimiter || '.';
+  options.extractToken = options.extractToken || null;
 
   if (options.configFile) {
-    try {
+    if (fs.existsSync(options.configFile)) {
       options.tokens = require(options.configFile);
-    } catch (e) { }
+    }
   }
   options.tokens = options.tokens || options.global || {};
 
@@ -42,6 +44,7 @@ function getTokenValue(tokens, tokenName, delimiter) {
   return tmpTokens;
 }
 
+
 function replace(target, options) {
   options = injectDefaultOptions(options);
 
@@ -65,7 +68,9 @@ function replace(target, options) {
   while (regExpResult = includeRegExp.exec(text)) {
     var fullMatch = regExpResult[0];
     var tokenName = regExpResult[1];
-    var tokenValue = getTokenValue(options.tokens, tokenName, options.delimiter);
+    var tokenValue = options.extractToken ?
+      options.extractToken(tokenName) :
+      getTokenValue(options.tokens, tokenName, options.delimiter);
 
     if (tokenValue === null && !options.preserveUnknownTokens) {
       tokenValue = '';
