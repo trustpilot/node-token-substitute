@@ -10,6 +10,9 @@
   "scripts": {
     "test": "mocha"
   },
+  "engines": {
+    "node": ">=4.2.4"
+  },
   "devDependencies": {
     "babel-eslint": "7.2.1",
     "chai": "3.5.0",
